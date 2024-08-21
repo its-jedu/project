@@ -32,7 +32,7 @@ class CustomLoginView(LoginView):
 
 # Custom LogoutView
 class CustomLogoutView(LogoutView):
-    next_page = 'login'  # Redirect to login page after logout
+    next_page = 'login'
 
     def dispatch(self, request, *args, **kwargs):
         # Set the logout message
@@ -220,5 +220,5 @@ def previous_quizzes(request):
 @login_required
 def leaderboard(request):
     # Assuming you want to show the top scoring students or similar logic
-    top_students = StudentQuiz.objects.order_by('-score')[:10]  # Top 10 students
+    top_students = StudentQuiz.objects.order_by('-score')[:10]
     return render(request, 'leaderboard.html', {'top_students': top_students})
