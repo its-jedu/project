@@ -1,11 +1,11 @@
 from django.urls import path
 from . import views
-from django.contrib.auth import views as auth_views  # Add this import
+from django.contrib.auth import views as auth_views
 from .views import CustomLoginView, CustomLogoutView
 
 
 urlpatterns = [
-    path('', views.dashboard, name='home'),  # Use the dashboard view as home
+    path('', views.dashboard, name='home'),
     path('quiz/<int:quiz_id>/', views.quiz_detail, name='quiz_detail'),
     path('register/', views.register, name='register'),
     path('login/', CustomLoginView.as_view(), name='login'),
