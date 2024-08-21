@@ -1,0 +1,11 @@
+question_text,correct_answer,answer_options,explanation,quiz_id
+How do you declare a variable in Java?,int x = 10;,"[""var x = 10;"", ""int x = 10;"", ""x = 10;"", ""x : 10;""]","In Java, you declare a variable with a specific type. `int x = 10;` is the correct syntax.",2
+Which method is used to start a thread in Java?,start(),"[""run()"", ""start()"", ""init()"", ""execute()""]",The `start()` method is used to begin the execution of a thread in Java.,2
+Which of the following is not a Java keyword?,extend,"[""class"", ""public"", ""interface"", ""extend""]",'extend' is not a Java keyword; 'extends' is the correct keyword.,2
+Which data type is used to create a variable that should store text in Java?,String,"[""int"", ""float"", ""String"", ""char""]",The `String` data type is used to store text in Java.,2
+What is the size of int data type in Java?,4 bytes,"[""2 bytes"", ""4 bytes"", ""8 bytes"", ""16 bytes""]",The `int` data type in Java is 4 bytes in size.,2
+Which operator is used to compare two values in Java?,==,"[""="", ""=="", ""==="", ""!=""]",The `==` operator is used for comparison in Java.,2
+Which statement is used to terminate a loop in Java?,break,"[""break"", ""exit"", ""return"", ""stop""]",The `break` statement is used to exit a loop prematurely.,2
+Which of the following is used to create an object in Java?,new,"[""class"", ""object"", ""new"", ""create""]",The `new` keyword is used to instantiate objects in Java.,2
+Which function is used to find the length of a string in Java?,length(),"[""length()"", ""size()"", ""strlen()"", ""getLength()""]",The `length()` method returns the length of a string in Java.,2
+What is the correct way to declare an array of integers in Java?,int[] arr = new int[10];,"[""int arr[] = new int(10);"", ""int[] arr = new int[10];"", ""int arr[10];"", ""int arr() = new int[10];""]",The correct way to declare an array of integers in Java is `int[] arr = new int[10];`.,2

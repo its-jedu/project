@@ -1,0 +1,13 @@
+<!-- learning/templates/previous_quizzes.html -->
+{% extends 'base.html' %}
+
+{% block title %}Previous Quizzes{% endblock %}
+
+{% block content %}
+<h1>Your Previous Quizzes</h1>
+<ul>
+    {% for quiz in student_quizzes %}
+        <li>{{ quiz.quiz.title }} - Score: {{ quiz.score }}%</li>
+    {% endfor %}
+</ul>
+{% endblock %}

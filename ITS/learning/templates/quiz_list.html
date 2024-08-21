@@ -1,0 +1,19 @@
+<!-- learning/templates/quiz_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Available Quizzes{% endblock %}
+
+{% block content %}
+<div class="quiz-list-container">
+    <h2 class="quiz-title">Available Quizzes</h2>
+    <div class="quiz-grid">
+        {% for topic in topics %}
+        <div class="quiz-card">
+            <h3 class="quiz-name">{{ topic.name }}</h3>
+            <p class="quiz-description">{{ topic.description }}</p>
+            <a href="{% url 'quiz_detail' topic.quiz_id %}" class="quiz-btn">Take Quiz</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

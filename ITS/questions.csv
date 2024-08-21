@@ -1,0 +1,11 @@
+question_text,correct_answer,answer_options,explanation,quiz_id
+What is the output of print(2 + 3 * 4)?,14,"[""14"", ""20"", ""18"", ""17""]","Multiplication has higher precedence than addition, so 3 * 4 is calculated first, then added to 2.",1
+Which of the following data types is immutable in Python?,Tuple,"[""List"", ""Dictionary"", ""Set"", ""Tuple""]","Tuples are immutable, meaning their contents cannot be changed after creation.",1
+How do you start a comment in Python?,#,"[""//"", ""#"", ""/*"", ""<!--""]",Comments in Python are started using the `#` symbol.,1
+What will the following code output? x = 'Python' print(x[1:4]),yth,"[""Pyt"", ""yth"", ""tho"", ""hon""]",The slicing operation x[1:4] returns the substring starting from index 1 up to (but not including) index 4.,1
+Which keyword is used to define a function in Python?,def,"[""func"", ""define"", ""def"", ""lambda""]",The `def` keyword is used to define a function in Python.,1
+What is the correct file extension for Python files?,.py,"["".python"", "".pyth"", "".py"", "".p""]",Python files have the `.py` extension.,1
+Which of the following is the correct syntax for a conditional statement in Python?,if x > y:,"[""if (x > y):"", ""if x > y"", ""if x > y:"", ""if x > y then""]",The correct syntax for an if statement in Python ends with a colon `:`.,1
+"What is the output of the following code? my_list = [1, 2, 3, 4, 5] print(my_list[-1])",5,"[""1"", ""5"", ""4"", ""Error""]","Negative indices count from the end of the list, so `my_list[-1]` returns 5.",1
+What does the `len()` function do in Python?,Returns the length of an object,"[""Returns the length of an object"", ""Returns the size of an object"", ""Returns the type of an object"", ""Returns the value of an object""]",The `len()` function returns the length (number of items) of an object.,1
+"What is the output of the following code? print(""Hello, World!"".lower())","hello, world!","[""HELLO, WORLD!"", ""hello, world!"", ""Hello, World!"", ""Error""]",The `lower()` method converts all uppercase characters in a string to lowercase.,1

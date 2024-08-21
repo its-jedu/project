@@ -1,0 +1,13 @@
+<!-- learning/templates/leaderboard.html -->
+{% extends 'base.html' %}
+
+{% block title %}Leaderboard{% endblock %}
+
+{% block content %}
+<h1>Leaderboard</h1>
+<ul>
+    {% for student_quiz in top_students %}
+        <li>{{ student_quiz.student.name }} - Score: {{ student_quiz.score }}%</li>
+    {% endfor %}
+</ul>
+{% endblock %}

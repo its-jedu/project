@@ -1,0 +1,108 @@
+<!-- templates/quiz_result.html -->
+{% extends 'base.html' %}
+
+{% block title %}Quiz Result{% endblock %}
+
+{% block content %}
+<div class="result-container">
+    <!-- Left Sidebar: Score and Leaderboard -->
+    <div class="sidebar-left">
+        <h2>Your Score: {{ score }}%</h2>
+        <p>You answered {{ correct_answers }} out of {{ total_questions }} questions correctly.</p>
+        <p><strong>Time Taken:</strong> {{ time_taken }} seconds</p>
+
+        {% if is_topping %}
+            <div class="alert alert-success mt-3">
+                Congratulations! You are topping this quiz in terms of speed!
+            </div>
+        {% endif %}
+
+        <h3>Leaderboard</h3>
+        <div class="leaderboard">
+            <ul>
+                {% for entry in leaderboard %}
+                    <li>{{ entry.student.name }} - {{ entry.score }}% ({{ entry.time_taken }} seconds)</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Right Sidebar: Question Details -->
+    <div class="sidebar-right">
+        <h3>Question Details</h3>
+        <div class="result-details">
+            {% for result in results %}
+                <div class="question-result">
+                    <h4>{{ result.question_text }}</h4>
+                    <p><strong>Your Answer:</strong> {{ result.selected_answer }}</p>
+                    <p><strong>Correct Answer:</strong> {{ result.correct_answer }}</p>
+                    {% if result.is_correct %}
+                        <p class="correct">Correct!</p>
+                    {% else %}
+                        <p class="incorrect">Incorrect!</p>
+                    {% endif %}
+                    <p><strong>Explanation:</strong> {{ result.explanation }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+.result-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.sidebar-left {
+    width: 35%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sidebar-right {
+    width: 60%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.leaderboard {
+    margin-top: 20px;
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.leaderboard ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.leaderboard li {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.result-details {
+    width: 100%;
+}
+
+.question-result {
+    margin-bottom: 20px;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,108 @@
+<!-- templates/dashboard.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Messages Section -->
+    {% if messages %}
+        <div class="alert-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Left Sidebar: User Information -->
+    <div class="sidebar-left">
+        <div class="user-info">
+            <img src="{% static 'images/user_avatar.png' %}" alt="User Avatar" class="avatar">
+            <h3 style="color: #4A90E2;">{{ user.username }}</h3>  
+            <p>Email: <span style="color: #7F8C8D;">{{ user.email }}</span></p>  
+            <p>Joined: <span style="color: #7F8C8D;">{{ user.date_joined|date:"Y-m-d" }}</span></p>  
+        </div>
+    </div>
+
+    <!-- Middle Section: Actions -->
+    <div class="main-content">
+        <h2 style="color: #27AE60;">Welcome, {{ user.username }}!</h2>  
+        <div class="actions">
+            <a href="{% url 'quiz_list' %}" class="btn btn-primary" style="background-color: #2980B9; border-color: #2980B9;">Take Quiz</a>  
+            <a href="{% url 'previous_quizzes' %}" class="btn btn-secondary" style="background-color: #8E44AD; border-color: #8E44AD;">Previous Quizzes</a>  
+            <a href="{% url 'leaderboard' %}" class="btn btn-success" style="background-color: #E67E22; border-color: #E67E22;">Leaderboard</a>  
+        </div>
+    </div>
+
+    <!-- Right Sidebar: Student Performance -->
+    <div class="sidebar-right">
+        <h3 style="color: #C0392B;">Performance Overview</h3>  
+        <canvas id="performance-chart"></canvas>  <!-- Changed from div to canvas -->
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const ctx = document.getElementById('performance-chart').getContext('2d');
+    const labels = {{ quiz_labels|safe }};
+    const scores = {{ quiz_scores|safe }};
+
+    console.log("Labels: ", labels);  
+    console.log("Scores: ", scores);  
+
+    if (labels.length > 0 && scores.length > 0) {
+        const performanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Score',
+                    data: scores,
+                    backgroundColor: 'rgba(231, 76, 60, 0.2)',  
+                    borderColor: '#E74C3C',  
+                    borderWidth: 3,
+                    pointBackgroundColor: '#3498DB',  
+                    pointBorderColor: '#2980B9',
+                    pointHoverBackgroundColor: '#2980B9',
+                    pointHoverBorderColor: '#2980B9',
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + "%";
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#34495E'
+                        }
+                    }
+                }
+            }
+
+        });
+    } else {
+        document.getElementById('performance-chart').innerText = "No performance data available.";
+    }
+});
+</script>
+{% endblock %}
