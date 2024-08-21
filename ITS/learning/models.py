@@ -18,9 +18,9 @@ class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=500)
     correct_answer = models.CharField(max_length=200)
-    answer_options = models.JSONField(default=list)  # Stores multiple choice options
+    answer_options = models.JSONField(default=list)
     explanation = models.TextField(null=True, blank=True)
-    difficulty = models.IntegerField(default=1)  # Add a difficulty field
+    difficulty = models.IntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.question_text
