@@ -49,7 +49,7 @@ setInterval(updateTimer, 1000);
 
 // Store time taken when the form is submitted
 document.querySelector('form').addEventListener('submit', function() {
-    const timeTaken = (Date.now() - startTime) / 1000; // Time in seconds
+    const timeTaken = (Date.now() - startTime) / 1000;
     document.getElementById('time_taken').value = timeTaken;
 });
 </script>
